@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.comp1011s1st200495642.CarSoldViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011s1st200495642.CarSoldViewController">
+   <children>
+      <BorderPane layoutX="291.0" layoutY="189.0" prefHeight="800.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <TableView prefHeight="401.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="firstColumnCarId" prefWidth="143.9999908208847" text="Car ID" />
+                <TableColumn fx:id="secondColumnModelYear" prefWidth="158.39999389648438" text="Model Year" />
+                  <TableColumn fx:id="thirdColumnMake" prefWidth="135.19998168945312" text="Make" />
+                  <TableColumn fx:id="fourthModel" prefWidth="199.19998168945312" text="Model" />
+                  <TableColumn fx:id="fifthColumnPrice" prefWidth="186.4000244140625" text="Price" />
+                  <TableColumn fx:id="lastCoulmnDateSold" prefWidth="178.39996337890625" text="Date Sold" />
+              </columns>
+            </TableView>
+         </top>
+         <left>
+            <BarChart fx:id="barChart" prefHeight="398.0" prefWidth="497.0" BorderPane.alignment="CENTER">
+              <xAxis>
+                <CategoryAxis fx:id="horizontalAxis" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="numberAxis" side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </left>
+         <center>
+            <HBox spacing="175.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="unitsLabel" prefHeight="30.0" prefWidth="158.0" text="Units sold-&gt;">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalSalesLabel" prefHeight="30.0" prefWidth="233.0" text="Total Sales-&gt;">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </center>
+         <right>
+            <ComboBox fx:id="filterByYear" prefHeight="26.0" prefWidth="131.0" promptText=":FILTER BY YEAR:" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
+   </children>
 </AnchorPane>
