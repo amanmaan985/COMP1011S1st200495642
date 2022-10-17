@@ -49,7 +49,6 @@ public class DBUtilities {
         ArrayList<Integer> threeYears = new ArrayList();
         String sql = "SELECT dateSold FROM carSales;";
 
-        //the try() is called "try with resources"
         try (
                 Connection conn = DriverManager.getConnection(connectUrl, user, pass);
                 Statement statement = conn.createStatement();
