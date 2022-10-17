@@ -45,8 +45,25 @@ public class DBUtilities {
         return carSolds;
 
     }
+    public static ArrayList<Integer>  getYearsFromDB() {
+        ArrayList<Integer> threeYears = new ArrayList();
+        String sql = "SELECT dateSold FROM carSales;";
 
+        //the try() is called "try with resources"
+        try (
+                Connection conn = DriverManager.getConnection(connectUrl, user, pass);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            while (resultSet.next()) {
+                LocalDate dateSold = resultSet.getDate("dateSold").toLocalDate();
+                threeYears.add(dateSold.getYear());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-
+        return threeYears;
+    }
 
 }
